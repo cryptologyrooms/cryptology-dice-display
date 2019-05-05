@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+
+<board type="Arduino Nano" name="Cryptology Dice Display">
+    <info>
+        A "dice face" display showing a numerical code
+    </info>
+    
+    <defines>
+        <define>N_DIGITS 5</define>
+    </defines>
+
+    <devices>
+        <device name="NeoPixels" type="Adafruit NeoPixel">
+            <setting id="pin" value="3"/>
+            <setting id="npixels" value="9"/>
+        </device>
+
+        <device name="Onboard LED" type="Timed OnOff">
+            <setting id="pin" name="LED" value="13"/>
+            <setting id="ontime" value="500"/>
+            <setting id="offtime" value="500"/>
+        </device>
+    </devices>
+
+    <parameters>
+        <parameter name="Short Delay" type="Integer">
+            <setting id="min" value="0"/>
+            <setting id="use_eeprom" value="true"/>
+            <setting id="type" value="uint16_t"/>
+        </parameter>
+        <parameter name="Long Delay" type="Integer">
+            <setting id="min" value="0"/>
+            <setting id="use_eeprom" value="true"/>
+            <setting id="type" value="uint16_t"/>
+        </parameter>
+        <parameter name="Combination" type="String">
+            <setting id="reset_value" value="4617"/>
+            <setting id="length" value="16"/>
+            <setting id="use_eeprom" value="true"/>
+        </parameter>
+        <parameter name="Colour" type="EightBitRGB">
+            <setting id="limit" value="255"/>
+            <setting id="clip" value="true"/>
+            <setting id="r_default" value="0"/>
+            <setting id="g_default" value="0"/>
+            <setting id="b_default" value="255"/>
+        </parameter>
+
+    </parameters>
+
+    <modules>
+        <module>Task</module>
+    </modules>
+
+    <custom_code>
+        <file>application.cpp</file>
+        <file>dice.cpp</file>
+        <file>dice.h</file>
+    </custom_code>
+
+    
+    <raat protocol="url"></raat>
+</board>

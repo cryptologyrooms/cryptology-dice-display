@@ -1,3 +1,5 @@
+#include <stdint.h>
+
 static const bool NUMBERS_TO_PIXEL_MAP[10][9] = {
 	{
 		false, false, false,
@@ -52,7 +54,7 @@ static const bool NUMBERS_TO_PIXEL_MAP[10][9] = {
 	}, //9
 };
 
-bool pixel_is_on(int number, int px)
+bool pixel_is_on(uint8_t number, uint8_t px)
 {
 	if ((number > 9) || (px >= 9)) { return false; }
 
